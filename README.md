@@ -4,6 +4,8 @@ Reads an Illustrator file and echoes Javascript canvas drawing code to draw the 
 ## Summary
 This library reads an Adobe Illustrator file (Illustrator 7 format) and produces HTML5 canvas drawing function calls that will draw the vector shape(s) contained in the file.  This includes matching the stroke and fill colors as well as the line thickness.  It does not include raster image data.
 
+**NOTE** - The postive y-axes of Illustrator and HTML5 canvas point in opposite directions, which means your shapes will be upside down when you use this function.  You can perform a quick negative scale on the y-axis to fix that.  I didn't want to introduce that scaling in the code in case you have other transformations you want to do and need to preserve the order of your transformations.
+
 ## How would one use this?
 You include the php file in your web page, which must have a canvas element on it.  Get the context for that canvas element and pass it, along with the path to your Illustrator file, to the php function:
 ```
